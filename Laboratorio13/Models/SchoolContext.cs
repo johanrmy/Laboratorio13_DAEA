@@ -11,7 +11,7 @@ namespace Laboratorio13.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=LAB1504-22\\SQLEXPRESS; Initial Catalog=School; trustservercertificate=True Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=LAB1504-22\\SQLEXPRESS; Initial Catalog=School; trustservercertificate=True; Integrated Security=True;");
         }
     }
 }
