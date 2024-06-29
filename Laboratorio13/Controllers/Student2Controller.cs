@@ -1,5 +1,6 @@
 ﻿using Laboratorio13.Models;
 using Laboratorio13.Models.Request.Student;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ namespace Laboratorio13.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void Insert(StudentInsertRequest request) {
             try {
@@ -34,6 +36,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         public void UpdateContact(StudentUpdateContactResquest request) {
             var student = _context.Students.FirstOrDefault(s => s.StudentId == request.StudentId);
@@ -49,6 +52,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         public void UpdatePersonalData(StudentUpdatePersonalResquest request)
         {
@@ -66,6 +70,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void InsertStudentsByGrade(StudentsInsertByGrade request) {
             try

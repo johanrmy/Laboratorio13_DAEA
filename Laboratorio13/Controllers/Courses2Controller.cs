@@ -1,5 +1,6 @@
 ﻿using Laboratorio13.Models;
 using Laboratorio13.Models.Request.Course;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ namespace Laboratorio13.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void Insert(CourseInsertRequest request) {
             try {
@@ -31,6 +33,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpDelete]
         public void Delete(CourseDeleteRequest request)
         {
@@ -47,6 +50,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpDelete]
         public void DeleteListCourses(CourseListDeleteRequest request) {
             try

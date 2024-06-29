@@ -1,5 +1,6 @@
 ﻿using Laboratorio13.Models;
 using Laboratorio13.Models.Request.Grade;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace Laboratorio13.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void Insert(GradeInsertRequest request) {
             try { 
@@ -31,6 +33,7 @@ namespace Laboratorio13.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpDelete]
         public void Delete(GradeDeleteRequest request) {
             var gradeDelete = _context.Grades.FirstOrDefault(g => g.GradeId == request.GradeId);

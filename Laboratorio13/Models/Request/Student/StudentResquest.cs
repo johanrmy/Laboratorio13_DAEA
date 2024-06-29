@@ -7,6 +7,5 @@
         public string Phone { get; set; }
         public string Email { get; set; }
         public int GradeId { get; set; }
-        public bool Active { get; set; }
     }
 }
